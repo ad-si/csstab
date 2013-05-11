@@ -1,0 +1,263 @@
+/* line 3, ../sass/screen.sass */
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+/* line 10, ../sass/screen.sass */
+html {
+  height: 100%;
+  background-color: #ffd9b4;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffd9b4), color-stop(100%, #ffb689));
+  background-image: -webkit-linear-gradient(#ffd9b4, #ffb689);
+  background-image: -moz-linear-gradient(#ffd9b4, #ffb689);
+  background-image: -o-linear-gradient(#ffd9b4, #ffb689);
+  background-image: linear-gradient(#ffd9b4, #ffb689);
+}
+
+/* line 14, ../sass/screen.sass */
+body {
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  font-size: 11px;
+  color: #505050;
+  line-height: 1.3;
+}
+
+/* line 21, ../sass/screen.sass */
+nav {
+  height: 10%;
+  min-height: 60px;
+}
+/* line 24, ../sass/screen.sass */
+nav h1 {
+  vertical-align: top;
+  text-shadow: 0 -1px 1px black, 0 2px 1px rgba(255, 255, 255, 0.6);
+  font: 900 40px/80px "Trebuchet MS", sans-serif;
+  display: inline-block;
+  margin-right: 60px;
+  color: #893e1c;
+  cursor: default;
+}
+/* line 32, ../sass/screen.sass */
+nav h1 span {
+  margin-left: 2px;
+  color: #838383;
+  font-style: italic;
+  font-family: "Times New Roman", serif;
+}
+/* line 37, ../sass/screen.sass */
+nav a {
+  display: inline-block;
+  vertical-align: top;
+  color: #623318;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 80px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* line 49, ../sass/screen.sass */
+#wrapper {
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px 40px 30px;
+}
+
+/* line 54, ../sass/screen.sass */
+#content {
+  height: 90%;
+}
+
+/* line 57, ../sass/screen.sass */
+table {
+  height: 100%;
+  display: none;
+  margin-bottom: 18px;
+  position: relative;
+  border-collapse: collapse;
+}
+/* line 63, ../sass/screen.sass */
+table th,
+table td {
+  padding: 6px;
+  line-height: 18px;
+}
+/* line 67, ../sass/screen.sass */
+table td {
+  border: 1px solid #e6e6e6;
+}
+/* line 70, ../sass/screen.sass */
+table thead:first-of-type {
+  display: block;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e6e6e6), color-stop(100%, #c8c8c8));
+  background: -webkit-linear-gradient(#e6e6e6, #c8c8c8);
+  background: -moz-linear-gradient(#e6e6e6, #c8c8c8);
+  background: -o-linear-gradient(#e6e6e6, #c8c8c8);
+  background: linear-gradient(#e6e6e6, #c8c8c8);
+  min-height: 30px;
+  height: 4%;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+/* line 77, ../sass/screen.sass */
+table thead:first-of-type th {
+  display: inline-block;
+  position: relative;
+  font-weight: 900;
+  font-size: 12px;
+  overflow: hidden;
+}
+/* line 84, ../sass/screen.sass */
+table tbody {
+  display: block;
+  border: 1px solid #dddddd;
+  background: white;
+  overflow-y: scroll;
+  height: 96%;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  /*&:first-of-type
+   * visibility: collapse
+   * height: 0px */
+}
+/* line 94, ../sass/screen.sass */
+table tbody th {
+  visibility: hidden;
+}
+/* line 97, ../sass/screen.sass */
+table:after, table:before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  top: -11px;
+  border-width: 0px 12px 12px 12px;
+  border-style: solid;
+  border-color: #e6e6e6 transparent;
+}
+/* line 107, ../sass/screen.sass */
+table:before {
+  top: -13px;
+  border-width: 0px 14px 14px 14px;
+  border-color: rgba(0, 0, 0, 0.4) transparent;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  filter: blur(2px);
+  z-index: -1;
+}
+
+/* line 117, ../sass/screen.sass */
+table.selectors thead th:nth-of-type(4) {
+  text-align: center;
+}
+/* line 121, ../sass/screen.sass */
+table.selectors tbody td:nth-of-type(1), table.selectors tbody td:nth-of-type(4),
+table.selectors tbody th:nth-of-type(1),
+table.selectors tbody th:nth-of-type(4) {
+  text-align: center;
+}
+
+/* line 128, ../sass/screen.sass */
+table.properties tbody td:nth-of-type(1), table.properties tbody td:nth-of-type(4), table.properties tbody td:nth-of-type(6), table.properties tbody td:nth-of-type(7), table.properties tbody td:nth-of-type(8),
+table.properties thead th:nth-of-type(1),
+table.properties thead th:nth-of-type(4),
+table.properties thead th:nth-of-type(6),
+table.properties thead th:nth-of-type(7),
+table.properties thead th:nth-of-type(8) {
+  text-align: center;
+}
+
+/* line 140, ../sass/screen.sass */
+table.selectors tbody tr:nth-of-type(2n) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+/* line 143, ../sass/screen.sass */
+table.selectors tbody td:nth-of-type(1) {
+  font-size: 10px;
+}
+/* line 145, ../sass/screen.sass */
+table.selectors tbody td:nth-of-type(2) {
+  font-weight: 900;
+  font-size: 12px;
+}
+/* line 148, ../sass/screen.sass */
+table.selectors:after {
+  left: 305px;
+}
+/* line 150, ../sass/screen.sass */
+table.selectors:before {
+  left: 304px;
+}
+
+/* line 155, ../sass/screen.sass */
+table.properties tbody tr:nth-of-type(2n) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+/* line 159, ../sass/screen.sass */
+table.properties tbody td:nth-of-type(1) {
+  font-size: 10px;
+}
+/* line 161, ../sass/screen.sass */
+table.properties tbody td:nth-of-type(2) {
+  white-space: nowrap;
+  font-weight: 900;
+  font-size: 13px;
+}
+/* line 166, ../sass/screen.sass */
+table.properties:after {
+  left: 202px;
+}
+/* line 168, ../sass/screen.sass */
+table.properties:before {
+  left: 201px;
+}
+
+/* line 173, ../sass/screen.sass */
+table th.sort-header {
+  text-shadow: 0 1px 0 white;
+  cursor: pointer;
+}
+/* line 176, ../sass/screen.sass */
+table th.sort-header:after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 45%;
+  border-width: 4px 4px 0;
+  border-style: solid;
+  border-color: #404040 transparent;
+  visibility: hidden;
+}
+/* line 185, ../sass/screen.sass */
+table th.sort-header:hover:after {
+  visibility: visible;
+}
+/* line 187, ../sass/screen.sass */
+table th.sort-down:after {
+  visibility: visible;
+  opacity: 0.4;
+}
+/* line 191, ../sass/screen.sass */
+table th.sort-up:after, table th.sort-up:hover:after {
+  visibility: visible;
+  opacity: 0.4;
+}
+/* line 195, ../sass/screen.sass */
+table th.sort-up:after {
+  border-top: none;
+  border-width: 0 4px 4px;
+}
+
+/* line 199, ../sass/screen.sass */
+.check {
+  color: #008c00;
+  font-size: 20px;
+}
