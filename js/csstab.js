@@ -67,7 +67,7 @@
 					}*/
 
 					if(item === true){
-						item = ['span#.check','•'];
+						item = ['span#.check','✔'];
 					}else{
 						item = String(item);
 					}
