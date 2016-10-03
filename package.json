@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "description": "Quickly look up CSS properties and selectors.",
   "main": "index.js",
+  "scripts": {
+    "lint": "eslint js/{csstab,properties,selectors}.js",
+    "test": "npm run lint"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/adius/csstab"
   },
-  "keywords": ["CSS"],
+  "keywords": [
+    "CSS"
+  ],
   "author": "Adrian Sieber",
   "license": "ISC",
   "bugs": {
@@ -15,6 +21,12 @@
   },
   "homepage": "https://github.com/adius/csstab#readme",
   "dependencies": {
+    "eslint": "^3.7.0",
+    "javascript-styleguide": "^1.0.0",
     "shaven": "^1.1.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "./node_modules/javascript-styleguide/.eslintrc.yaml"
   }
 }

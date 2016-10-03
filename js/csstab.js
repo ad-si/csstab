@@ -1,135 +1,129 @@
+/* global shaven, properties, selectors, Tablesort */
+/* eslint-disable prefer-arrow-callback */
+
 (function (window, document) {
+  const build = shaven.default
+  const state = {
+    'table': 'properties',
+  }
 
-	var D = shaven.default,
-		state = {
-			'table':'properties'
-		};
+  function getElement (query) {
+    return document.querySelector(query)
+  }
 
-	function $(e) {
-		return document.querySelector(e);
-	}
+  function cleanUp () {
+    getElement('#content').innerHTML = ''
+  }
 
-	function cleanUp() {
-		$('#content').innerHTML = '';
-	}
+  function setState (theState) {
+    theState.table = getElement('table').className = theState
+  }
 
-	function setState(state){
-		state.table = $('table').className = state;
-	}
+  function displayTable (type) {
+    function createTable () {
+      build([
+        getElement('#content'),
+        ['table#.properties'],
+      ])
+    }
 
-	function displayTable(type) {
-
-		function createTable() {
-			D([$('#content'),
-				['table#.properties']
-			]);
-		}
-
-		function createTableHead() {
-
-			D([$('table'),
-				['thead',
-					['tr',
-						['th#.sort-down', 'Nr']
-					]
-				]
-			]);
+    function createTableHead () {
+      build([getElement('table'),
+        ['thead',
+          ['tr',
+            ['th#.sort-down', 'Nr'],
+          ],
+        ],
+      ])
 
 
-			type.structure.forEach(function (column) {
-				D([$('table thead:last-of-type tr'),
-					['th', column]
-				]);
-			});
-		}
+      type.structure.forEach(function (column) {
+        build([
+          getElement('table thead:last-of-type tr'),
+          ['th', column],
+        ])
+      })
+    }
 
-		function createBody() {
+    function createBody () {
+      build([getElement('table'), ['tbody']])
 
-			D([$('table'), ['tbody']]);
+      let index = 1
 
-			var i = 1;
+      type.data.forEach(function (row) {
+        build([
+          getElement('table tbody:last-of-type'),
+          ['tr',
+            ['td', String(index++)],
+          ],
+        ])
 
-			type.data.forEach(function (row) {
+        row.forEach(function (item) {
+          if (item === true) {
+            item = ['span#.check', '✔']
+          }
+          else {
+            item = String(item)
+          }
 
+          build([getElement('table tbody:last-of-type tr:last-of-type'),
+            ['td', item],
+          ])
+        })
+      })
 
-				D([$('table tbody:last-of-type'),
-					['tr',
-						['td', String(i++)]
-					]
-				]);
-
-				row.forEach(function (item) {
-					/*if(item.pop){
-
-						item.forEach(function(value){
-
-						});
-					}*/
-
-					if(item === true){
-						item = ['span#.check','✔'];
-					}else{
-						item = String(item);
-					}
-
-					D([$('table tbody:last-of-type tr:last-of-type'),
-						['td', item]
-					]);
-				});
-			});
-
-			// Insert thead also in tbody for automatic layouting
-			for (a = -1; a < type.structure.length; a++) {
-
-				if (a == -1) {
-					D([$('table tbody'),
-						['tr#.last',
-							['th', 'Nr']
-						]
-					]);
-				} else {
-					D([$('table tr.last'),
-						['th', type.structure[a]]
-					]);
-				}
-			}
-		}
+      // Insert thead also in tbody for automatic layouting
+      for (let loopIndex = -1; loopIndex < type.structure.length; loopIndex++) {
+        if (loopIndex === -1) {
+          build([getElement('table tbody'),
+            ['tr#.last',
+              ['th', 'Nr'],
+            ],
+          ])
+        }
+        else {
+          build([getElement('table tr.last'),
+            ['th', type.structure[loopIndex]],
+          ])
+        }
+      }
+    }
 
 
-		if (state.table != type) {
+    if (state.table !== type) {
+      createTable()
+      createTableHead()
+      createBody()
 
-			createTable();
+      getElement('table').style.display = 'inline-block'
 
-			createTableHead();
+      // eslint-disable-next-line no-new
+      new Tablesort(document.querySelector('#content table'))
 
-			createBody();
+      const bodyCells = document.querySelectorAll('tbody tr:first-of-type td')
+      const headCells = document.querySelectorAll('thead tr:first-of-type th')
 
-			$('table').style.display = 'inline-block';
+      // Take over width of layouted header
+      for (let loopIndex = 0; loopIndex < bodyCells.length; loopIndex++) {
+        headCells[loopIndex].style.width =
+          bodyCells[loopIndex].offsetWidth + 'px'
+      }
+    }
+  }
 
-			new Tablesort(document.querySelector('#content table'));
+  getElement('#properties')
+    .addEventListener('click', function () {
+      cleanUp()
+      displayTable(properties)
+      setState('properties')
+    })
+  getElement('#selectors')
+    .addEventListener('click', function () {
+      cleanUp()
+      displayTable(selectors)
+      setState('selectors')
+    })
 
-			var bodyCells = document.querySelectorAll('tbody tr:first-of-type td');
-			var headCells = document.querySelectorAll('thead tr:first-of-type th');
+  displayTable(properties)
 
-			//take over width of layouted header
-			for (var a = 0; a < bodyCells.length; a++) {
-				headCells[a].style.width = bodyCells[a].offsetWidth + 'px';
-			}
-		}
-	}
-
-	$('#properties').addEventListener('click', function () {
-		cleanUp();
-		displayTable(properties);
-		setState('properties');
-	});
-	$('#selectors').addEventListener('click', function () {
-		cleanUp();
-		displayTable(selectors);
-		setState('selectors');
-	});
-
-	displayTable(properties);
-
-
-})(window, document);
+})(window, document)
