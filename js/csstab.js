@@ -1,6 +1,6 @@
 (function (window, document) {
 
-	var D = DOMinate,
+	var D = shaven.default,
 		state = {
 			'table':'properties'
 		};
