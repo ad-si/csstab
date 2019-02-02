@@ -1,16 +1,15 @@
-@import compass
-
 *
   border: none
   margin: 0
   padding: 0
-  +box-sizing(border-box)
+  box-sizing: border-box
   font-size: 100%
 
 html
   height: 100%
   background-color: rgb(255, 217, 180)
-  +background-image(linear-gradient(rgb(255, 217, 180), rgb(255, 182, 137)))
+  background-image: linear-gradient(rgb(255, 217, 180), rgb(255, 182, 137))
+
 body
   height: 100%
   font-family: "Arial", sans-serif
@@ -50,6 +49,7 @@ nav
   height: 100%
   margin: 0 auto
   padding: 0 30px 40px 30px
+
 s
 #content
   height: 90%
@@ -69,7 +69,7 @@ table
 
   thead:first-of-type
     display: block
-    +background(linear-gradient(#e6e6e6, #c8c8c8))
+    background: linear-gradient(#e6e6e6, #c8c8c8)
     min-height: 30px
     height: 4%
     box-shadow: 0 -1px 6px rgba(black, 0.4)
@@ -108,7 +108,7 @@ table
     top: -13px
     border-width: 0px 14px 14px 14px
     border-color: rgba(0, 0, 0, 0.4) transparent
-    +filter(blur(2px))
+    filter: blur(2px)
     z-index: -1
 
 //text-align: center

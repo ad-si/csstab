@@ -4,6 +4,8 @@
   "description": "Quickly look up CSS properties and selectors.",
   "main": "index.js",
   "scripts": {
+    "build": "mkdir -p css && sass --style=compressed sass/screen.sass > css/screen.css",
+    "clean": "rm -rf css",
     "lint": "eslint js/{csstab,properties,selectors}.js",
     "test": "npm run lint"
   },
