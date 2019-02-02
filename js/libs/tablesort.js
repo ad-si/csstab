@@ -31,18 +31,18 @@ Tablesort.prototype = {
                 for (var i = 0; i < siblings.length; i++) {
                     if (that.hasClass(siblings[i], 'sort-up') || that.hasClass(siblings[i], 'sort-down')) {
                         if (siblings[i] !== this) {
-	                        siblings[i].classList.remove('sort-up');
-	                        siblings[i].classList.remove('sort-down');
+                          siblings[i].classList.remove('sort-up');
+                          siblings[i].classList.remove('sort-down');
                         }
                     }
                 }
                 that.sortTable(this);
 
-	            // Put header row at last position
-	            var row = document.querySelector('tr.last'),
-	                body = row.parentNode;
-	            body.removeChild(row);
-	            body.appendChild(row);
+              // Put header row at last position
+              var row = document.querySelector('tr.last'),
+                  body = row.parentNode;
+              body.removeChild(row);
+              body.appendChild(row);
             });
         }
     },
@@ -109,12 +109,12 @@ Tablesort.prototype = {
         newRows.sort(sortFunction);
 
         if (that.hasClass(header, 'sort-down')) {
-	        header.className = header.className.replace(/ sort-down/, '');
-	        header.className += ' sort-up';
-	        newRows.reverse();
+          header.className = header.className.replace(/ sort-down/, '');
+          header.className += ' sort-up';
+          newRows.reverse();
         } else {
-	        header.className = header.className.replace(/ sort-up/, '');
-	        header.className += ' sort-down';
+          header.className = header.className.replace(/ sort-up/, '');
+          header.className += ' sort-down';
         }
 
         // append rows that already exist rather than creating new ones
@@ -136,7 +136,7 @@ Tablesort.prototype = {
                 case 1: // ELEMENT_NODE
                 str += that.getInnerText(cs[i]);
                 break;
-                case 3:	// TEXT_NODE
+                case 3: // TEXT_NODE
                 str += cs[i].nodeValue;
                 break;
             }

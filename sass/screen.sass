@@ -1,201 +1,201 @@
 @import compass
 
 *
-	border: none
-	margin: 0
-	padding: 0
-	+box-sizing(border-box)
-	font-size: 100%
+  border: none
+  margin: 0
+  padding: 0
+  +box-sizing(border-box)
+  font-size: 100%
 
 html
-	height: 100%
-	background-color: rgb(255, 217, 180)
-	+background-image(linear-gradient(rgb(255, 217, 180), rgb(255, 182, 137)))
+  height: 100%
+  background-color: rgb(255, 217, 180)
+  +background-image(linear-gradient(rgb(255, 217, 180), rgb(255, 182, 137)))
 body
-	height: 100%
-	font-family: "Arial", sans-serif
-	font-size: 11px
-	color: rgb(80, 80, 80)
-	line-height: 1.3
+  height: 100%
+  font-family: "Arial", sans-serif
+  font-size: 11px
+  color: rgb(80, 80, 80)
+  line-height: 1.3
 
 nav
-	height: 10%
-	min-height: 60px
-	h1
-		vertical-align: top
-		text-shadow: 0 -1px 1px rgba(black, 1), 0 2px 1px rgba(white, 0.6)
-		font: 900 40px/80px "Trebuchet MS", sans-serif
-		display: inline-block
-		margin-right: 60px
-		color: #893e1c
-		cursor: default
-		span
-			margin-left: 2px
-			color: rgb(131, 131, 131)
-			font-style: italic
-			font-family: 'Times New Roman', serif
-	a
-		display: inline-block
-		vertical-align: top
-		color: #623318
-		text-shadow: 0 1px 1px rgba(white, 0.6)
-		text-decoration: none
-		font-weight: 900
-		font-size: 16px
-		line-height: 80px
-		margin-right: 20px
-		cursor: pointer
+  height: 10%
+  min-height: 60px
+  h1
+    vertical-align: top
+    text-shadow: 0 -1px 1px rgba(black, 1), 0 2px 1px rgba(white, 0.6)
+    font: 900 40px/80px "Trebuchet MS", sans-serif
+    display: inline-block
+    margin-right: 60px
+    color: #893e1c
+    cursor: default
+    span
+      margin-left: 2px
+      color: rgb(131, 131, 131)
+      font-style: italic
+      font-family: 'Times New Roman', serif
+  a
+    display: inline-block
+    vertical-align: top
+    color: #623318
+    text-shadow: 0 1px 1px rgba(white, 0.6)
+    text-decoration: none
+    font-weight: 900
+    font-size: 16px
+    line-height: 80px
+    margin-right: 20px
+    cursor: pointer
 
 #wrapper
-	height: 100%
-	margin: 0 auto
-	padding: 0 30px 40px 30px
-
+  height: 100%
+  margin: 0 auto
+  padding: 0 30px 40px 30px
+s
 #content
-	height: 90%
+  height: 90%
 
 table
-	height: 100%
-	display: none
-	margin-bottom: 18px
-	position: relative
-	border-collapse: collapse
-	th,
-	td
-		padding: 6px
-		line-height: 18px
-	td
-		border: 1px solid #e6e6e6
+  height: 100%
+  display: none
+  margin-bottom: 18px
+  position: relative
+  border-collapse: collapse
+  th,
+  td
+    padding: 6px
+    line-height: 18px
+  td
+    border: 1px solid #e6e6e6
 
-	thead:first-of-type
-		display: block
-		+background(linear-gradient(#e6e6e6, #c8c8c8))
-		min-height: 30px
-		height: 4%
-		box-shadow: 0 -1px 6px rgba(black, 0.4)
-		text-align: left
-		th
-			display: inline-block
-			position: relative
-			font-weight: 900
-			font-size: 12px
-			overflow: hidden
+  thead:first-of-type
+    display: block
+    +background(linear-gradient(#e6e6e6, #c8c8c8))
+    min-height: 30px
+    height: 4%
+    box-shadow: 0 -1px 6px rgba(black, 0.4)
+    text-align: left
+    th
+      display: inline-block
+      position: relative
+      font-weight: 900
+      font-size: 12px
+      overflow: hidden
 
-	tbody
-		display: block
-		border: 1px solid #ddd
-		background: #fff
-		overflow-y: scroll
-		height: 96%
-		box-shadow: 0 1px 6px rgba(black, 0.4)
-		/*&:first-of-type
-			visibility: collapse
-			height: 0px
-		th
-			visibility: hidden
+  tbody
+    display: block
+    border: 1px solid #ddd
+    background: #fff
+    overflow-y: scroll
+    height: 96%
+    box-shadow: 0 1px 6px rgba(black, 0.4)
+    /*&:first-of-type
+      visibility: collapse
+      height: 0px
+    th
+      visibility: hidden
 
-	&:after,
-	&:before
-		content: ""
-		display: block
-		width: 0
-		position: absolute
-		top: -11px
-		border-width: 0px 12px 12px 12px
-		border-style: solid
-		border-color: #e6e6e6 transparent
-	&:before
-		top: -13px
-		border-width: 0px 14px 14px 14px
-		border-color: rgba(0, 0, 0, 0.4) transparent
-		+filter(blur(2px))
-		z-index: -1
+  &:after,
+  &:before
+    content: ""
+    display: block
+    width: 0
+    position: absolute
+    top: -11px
+    border-width: 0px 12px 12px 12px
+    border-style: solid
+    border-color: #e6e6e6 transparent
+  &:before
+    top: -13px
+    border-width: 0px 14px 14px 14px
+    border-color: rgba(0, 0, 0, 0.4) transparent
+    +filter(blur(2px))
+    z-index: -1
 
 //text-align: center
 table.selectors
-	thead th
-		&:nth-of-type(4)
-			text-align: center
-	tbody td,
-	tbody th
-		&:nth-of-type(1),
-		&:nth-of-type(4)
-			text-align: center
+  thead th
+    &:nth-of-type(4)
+      text-align: center
+  tbody td,
+  tbody th
+    &:nth-of-type(1),
+    &:nth-of-type(4)
+      text-align: center
 
 table.properties
-	tbody td,
-	thead th
-		&:nth-of-type(1),
-		&:nth-of-type(4),
-		&:nth-of-type(6),
-		&:nth-of-type(7),
-		&:nth-of-type(8)
-			text-align: center
+  tbody td,
+  thead th
+    &:nth-of-type(1),
+    &:nth-of-type(4),
+    &:nth-of-type(6),
+    &:nth-of-type(7),
+    &:nth-of-type(8)
+      text-align: center
 //----
 
 
 table.selectors
-	tbody
-		tr
-			&:nth-of-type(2n)
-				background-color: rgba(0, 0, 0, 0.05)
-		td
-			&:nth-of-type(1)
-				font-size: 10px
-			&:nth-of-type(2)
-				font-weight: 900
-				font-size: 12px
-	&:after
-		left: 305px
-	&:before
-		left: 304px
+  tbody
+    tr
+      &:nth-of-type(2n)
+        background-color: rgba(0, 0, 0, 0.05)
+    td
+      &:nth-of-type(1)
+        font-size: 10px
+      &:nth-of-type(2)
+        font-weight: 900
+        font-size: 12px
+  &:after
+    left: 305px
+  &:before
+    left: 304px
 
 table.properties
-	tbody tr
-		&:nth-of-type(2n)
-			background-color: rgba(0, 0, 0, 0.05)
+  tbody tr
+    &:nth-of-type(2n)
+      background-color: rgba(0, 0, 0, 0.05)
 
-	tbody td
-		&:nth-of-type(1)
-			font-size: 10px
-		&:nth-of-type(2)
-			white-space: nowrap
-			font-weight: 900
-			font-size: 13px
+  tbody td
+    &:nth-of-type(1)
+      font-size: 10px
+    &:nth-of-type(2)
+      white-space: nowrap
+      font-weight: 900
+      font-size: 13px
 
-	&:after
-		left: 202px
-	&:before
-		left: 201px
+  &:after
+    left: 202px
+  &:before
+    left: 201px
 
 //tablesort specific styling
 table th
-	&.sort-header
-		text-shadow: 0 1px 0 #fff
-		cursor: pointer
-		&:after
-			content: ''
-			position: absolute
-			bottom: 3px
-			left: 45%
-			border-width: 4px 4px 0
-			border-style: solid
-			border-color: #404040 transparent
-			visibility: hidden
-		&:hover:after
-			visibility: visible
-	&.sort-down:after
-		visibility: visible
-		opacity: 0.4
-	&.sort-up
-		&:after,
-		&:hover:after
-			visibility: visible
-			opacity: 0.4
-		&:after
-			border-top: none
-			border-width: 0 4px 4px
+  &.sort-header
+    text-shadow: 0 1px 0 #fff
+    cursor: pointer
+    &:after
+      content: ''
+      position: absolute
+      bottom: 3px
+      left: 45%
+      border-width: 4px 4px 0
+      border-style: solid
+      border-color: #404040 transparent
+      visibility: hidden
+    &:hover:after
+      visibility: visible
+  &.sort-down:after
+    visibility: visible
+    opacity: 0.4
+  &.sort-up
+    &:after,
+    &:hover:after
+      visibility: visible
+      opacity: 0.4
+    &:after
+      border-top: none
+      border-width: 0 4px 4px
 
 .check
-	color: #008c00
-	font-size: 20px
+  color: #008c00
+  font-size: 20px
