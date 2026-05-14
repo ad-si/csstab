@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
-// eslint-disable-next-line no-unused-vars
-const selectors = {
+export const selectors = {
   structure: ['Pattern', 'Meaning', 'Level'],
   data: [
     ['*', 'any element', 2],

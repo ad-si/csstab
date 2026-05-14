@@ -179,3 +179,5 @@ Tablesort.prototype = {
         }
     }
 };
+
+export default Tablesort;

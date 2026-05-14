@@ -1,129 +1,91 @@
-/* global shaven, properties, selectors, Tablesort */
-/* eslint-disable prefer-arrow-callback */
+import Tablesort from './libs/tablesort.js'
+import shaven from './libs/shaven.min.js'
+import {properties} from './properties.js'
+import {selectors} from './selectors.js'
 
-(function (window, document) {
-  const build = shaven.default
-  const state = {
-    'table': 'properties',
+const build = shaven.default
+const state = {table: 'properties'}
+
+const getElement = query => document.querySelector(query)
+
+const cleanUp = () => {
+  getElement('#content').innerHTML = ''
+}
+
+const setState = theState => {
+  state.table = getElement('table').className = theState
+}
+
+const displayTable = type => {
+  if (state.table === type) return
+
+  build([getElement('#content'), ['table#.properties']])
+
+  build([
+    getElement('table'),
+    ['thead', ['tr', ['th#.sort-down', 'Nr']]],
+  ])
+
+  for (const column of type.structure) {
+    build([
+      getElement('table thead:last-of-type tr'),
+      ['th', column],
+    ])
   }
 
-  function getElement (query) {
-    return document.querySelector(query)
-  }
+  build([getElement('table'), ['tbody']])
 
-  function cleanUp () {
-    getElement('#content').innerHTML = ''
-  }
+  let index = 1
+  for (const row of type.data) {
+    build([
+      getElement('table tbody:last-of-type'),
+      ['tr', ['td', String(index++)]],
+    ])
 
-  function setState (theState) {
-    theState.table = getElement('table').className = theState
-  }
+    for (const rawItem of row) {
+      const item = rawItem === true
+        ? ['span#.check', '✔']
+        : String(rawItem)
 
-  function displayTable (type) {
-    function createTable () {
       build([
-        getElement('#content'),
-        ['table#.properties'],
+        getElement('table tbody:last-of-type tr:last-of-type'),
+        ['td', item],
       ])
-    }
-
-    function createTableHead () {
-      build([getElement('table'),
-        ['thead',
-          ['tr',
-            ['th#.sort-down', 'Nr'],
-          ],
-        ],
-      ])
-
-
-      type.structure.forEach(function (column) {
-        build([
-          getElement('table thead:last-of-type tr'),
-          ['th', column],
-        ])
-      })
-    }
-
-    function createBody () {
-      build([getElement('table'), ['tbody']])
-
-      let index = 1
-
-      type.data.forEach(function (row) {
-        build([
-          getElement('table tbody:last-of-type'),
-          ['tr',
-            ['td', String(index++)],
-          ],
-        ])
-
-        row.forEach(function (item) {
-          if (item === true) {
-            item = ['span#.check', '✔']
-          }
-          else {
-            item = String(item)
-          }
-
-          build([getElement('table tbody:last-of-type tr:last-of-type'),
-            ['td', item],
-          ])
-        })
-      })
-
-      // Insert thead also in tbody for automatic layouting
-      for (let loopIndex = -1; loopIndex < type.structure.length; loopIndex++) {
-        if (loopIndex === -1) {
-          build([getElement('table tbody'),
-            ['tr#.last',
-              ['th', 'Nr'],
-            ],
-          ])
-        }
-        else {
-          build([getElement('table tr.last'),
-            ['th', type.structure[loopIndex]],
-          ])
-        }
-      }
-    }
-
-
-    if (state.table !== type) {
-      createTable()
-      createTableHead()
-      createBody()
-
-      getElement('table').style.display = 'inline-block'
-
-      // eslint-disable-next-line no-new
-      new Tablesort(document.querySelector('#content table'))
-
-      const bodyCells = document.querySelectorAll('tbody tr:first-of-type td')
-      const headCells = document.querySelectorAll('thead tr:first-of-type th')
-
-      // Take over width of layouted header
-      for (let loopIndex = 0; loopIndex < bodyCells.length; loopIndex++) {
-        headCells[loopIndex].style.width =
-          bodyCells[loopIndex].offsetWidth + 'px'
-      }
     }
   }
 
-  getElement('#properties')
-    .addEventListener('click', function () {
-      cleanUp()
-      displayTable(properties)
-      setState('properties')
-    })
-  getElement('#selectors')
-    .addEventListener('click', function () {
-      cleanUp()
-      displayTable(selectors)
-      setState('selectors')
-    })
+  // Insert thead also in tbody for automatic layouting
+  build([
+    getElement('table tbody'),
+    ['tr#.last', ['th', 'Nr']],
+  ])
+  for (const column of type.structure) {
+    build([getElement('table tr.last'), ['th', column]])
+  }
 
+  getElement('table').style.display = 'inline-block'
+
+  new Tablesort(document.querySelector('#content table'))
+
+  const bodyCells = document.querySelectorAll('tbody tr:first-of-type td')
+  const headCells = document.querySelectorAll('thead tr:first-of-type th')
+
+  // Take over width of layouted header
+  for (let i = 0; i < bodyCells.length; i++) {
+    headCells[i].style.width = `${bodyCells[i].offsetWidth}px`
+  }
+}
+
+getElement('#properties').addEventListener('click', () => {
+  cleanUp()
   displayTable(properties)
+  setState('properties')
+})
 
-})(window, document)
+getElement('#selectors').addEventListener('click', () => {
+  cleanUp()
+  displayTable(selectors)
+  setState('selectors')
+})
+
+displayTable(properties)

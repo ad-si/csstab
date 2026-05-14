@@ -2,11 +2,11 @@
   "name": "csstab",
   "version": "1.0.0",
   "description": "Quickly look up CSS properties and selectors.",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "mkdir -p css && sass --style=compressed sass/screen.sass > css/screen.css",
     "clean": "rm -rf css",
-    "lint": "eslint js/{csstab,properties,selectors}.js",
+    "lint": "eslint js/csstab.js js/properties.js js/selectors.js",
     "test": "npm run lint"
   },
   "repository": {
@@ -23,15 +23,10 @@
   },
   "homepage": "https://github.com/ad-si/csstab#readme",
   "dependencies": {
-    "eslint": "^5.13.0",
-    "javascript-styleguide": "^1.0.0",
     "shaven": "^1.3.0"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": "./node_modules/javascript-styleguide/.eslintrc.yaml"
-  },
   "devDependencies": {
+    "eslint": "^9.0.0",
     "sass": "^1.16.1"
   }
 }

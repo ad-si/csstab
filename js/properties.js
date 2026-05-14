@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
-// eslint-disable-next-line no-unused-vars
-const properties = {
+export const properties = {
   structure: [
     'name', 'values', 'initial', 'applies', 'inherited', 'percentages', 'media',
   ],
