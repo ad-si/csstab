@@ -4,7 +4,6 @@ import {properties} from './properties.js'
 import {selectors} from './selectors.js'
 
 const build = shaven.default
-const state = {table: 'properties'}
 
 const getElement = query => document.querySelector(query)
 
@@ -12,14 +11,8 @@ const cleanUp = () => {
   getElement('#content').innerHTML = ''
 }
 
-const setState = theState => {
-  state.table = getElement('table').className = theState
-}
-
-const displayTable = type => {
-  if (state.table === type) return
-
-  build([getElement('#content'), ['table#.properties']])
+const displayTable = (type, className) => {
+  build([getElement('#content'), [`table#.${className}`]])
 
   build([
     getElement('table'),
@@ -78,14 +71,12 @@ const displayTable = type => {
 
 getElement('#properties').addEventListener('click', () => {
   cleanUp()
-  displayTable(properties)
-  setState('properties')
+  displayTable(properties, 'properties')
 })
 
 getElement('#selectors').addEventListener('click', () => {
   cleanUp()
-  displayTable(selectors)
-  setState('selectors')
+  displayTable(selectors, 'selectors')
 })
 
-displayTable(properties)
+displayTable(properties, 'properties')
